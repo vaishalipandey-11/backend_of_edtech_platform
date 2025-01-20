@@ -15,7 +15,8 @@ const userSchema = new mongoose.Schema({
     email: {
          type:String,
          required: true ,
-         trim : true,
+         trim : true, //ensures that leading and trailing spaces are removed from input values.
+
     },
     password:{
         type:String ,
@@ -23,16 +24,18 @@ const userSchema = new mongoose.Schema({
     },
     accountType:{
         type:String ,
-        enum :["Admin","Student","Instructor"],
+        enum :["Admin","Student","Instructor"], //accountType uses an enum to restrict values to specific roles (Admin, Student, Instructor), enforcing controlled input.
+
         required:true,
     },
     additionalDetails:{
         type:mongoose.Schema.Types.ObjectId,
         required :true,
-        ref:"Profile",
+        ref:"Profile", //additionalDetails is a reference to a Profile schema, which likely contains more detailed user information.
 
     },
     courses: [{
+        //courses is an array of references to a Course schema, representing the courses a user is enrolled in or managing.
         type:mongoose.Schema.Types.ObjectId,
         ref:"Course",
     }],
@@ -42,6 +45,7 @@ const userSchema = new mongoose.Schema({
 
     },
     courseProgress:[{
+        //courseProgress tracks the progress of the user in courses via references to the CourseProgress schema.
         type:mongoose.Schema.Types.ObjectId,
         ref:"CourseProgress",
     }],

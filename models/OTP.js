@@ -18,7 +18,8 @@ const OTPSchema = new mongoose.Schema({
 });
 
 
-// afunction to send mail
+    // afunction to send mail
+    // mailer code pre post middle wale so schema se phle or model k baad 
 async function sendVerificationEmail(email,otp){
     try{
         const mailResponse = await mailSender(email,"Verification Email from StudyBuddy ", otp);
@@ -30,6 +31,7 @@ async function sendVerificationEmail(email,otp){
 
     }
 }
+//pre middlewware 
 OTPSchema.pre("save ", async function(next){
     await sendVerificationEmail(this.email, this.otp);
     next(); 
