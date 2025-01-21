@@ -2,6 +2,7 @@ const User =  require("../models/User");
 const OTP = require("../models/OTP");
 const otpGenerator = require("otp-generator");
 const bcrypt = require("bcrypt"); 
+env.conf
 
 
 //send OTP 
@@ -210,7 +211,7 @@ exports.login = async(req,res)=>{
             const payload = {
                 email:user.email,
                 id: user._id,
-                role:user.role,
+                accountType:user.accountType,
             }
             const token = jwt.sign(payload , process.env.JWT_SECRET,{
                 expiresIn:"2h",
