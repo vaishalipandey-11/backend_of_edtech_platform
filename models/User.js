@@ -44,6 +44,14 @@ const userSchema = new mongoose.Schema({
         required:true,
 
     },
+    token:{
+        type : String,
+        required : true,
+    },
+    resetPasswordExpires:{
+        type:Date,
+    },
+    
     courseProgress:[{
         //courseProgress tracks the progress of the user in courses via references to the CourseProgress schema.
         type:mongoose.Schema.Types.ObjectId,
