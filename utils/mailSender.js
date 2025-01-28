@@ -1,29 +1,28 @@
-const nodemailer = require("nodemailer");
+const nodemailer = require("nodemailer")
 
-const mailSender = async ( email , title , body) =>{
-    //mailsend krne k liye transpoterftn using nodemailer 
-    try{
-        // Create a transporter
-        let transporter = nodemailer.createTransport({
-            host:process.env.MAIL_HOST,// SMTP server (e.g., Gmail)
-            auth:{
-                user:process.env.MAIL_USER,// Your email address
-                pass:process.env.MAIL_PASS,// Your email password or App Password
-            }
-        })
-            // Email options
-        let info = await transporter.sendMail({ // SEND MAIL FTN TO SEND EMAIL
-            from:'StudyBuddy || TUX - by vaishali', // Sender address
-            to:`${email}`,// Recipient(s)
-            subject:`${title}`,   // Email subject
-            html:`${body}`,     // HTML body
-        })
-        console.log(info);
-        return info;
-    }
-    catch(error){
-        console.log(error.message);
+const mailSender = async (email, title, body) => {
+  try {
+    let transporter = nodemailer.createTransport({
+      host: process.env.MAIL_HOST,
+      auth: {
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS,
+      },
+      secure: false,
+    })
 
-    }
+    let info = await transporter.sendMail({
+      from: `"CodePlay | Pranjal" <${process.env.MAIL_USER}>`, // sender address
+      to: `${email}`, // list of receivers
+      subject: `${title}`, // Subject line
+      html: `${body}`, // html body
+    })
+    console.log(info.response)
+    return info
+  } catch (error) {
+    console.log(error.message)
+    return error.message
+  }
 }
-module.exports = mailSender;
+
+module.exports = mailSender
