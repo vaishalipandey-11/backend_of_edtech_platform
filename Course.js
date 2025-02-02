@@ -1,10 +1,10 @@
-const Course = require("../models/Course")
-const Category = require("../models/Category")
-const Section = require("../models/Section")
-const SubSection = require("../models/Subsection")
-const User = require("../models/User")
-const { uploadImageToCloudinary } = require("../utils/imageUploader")
-const CourseProgress = require("../models/CourseProgress")
+const Course = require("./models/Course")
+const Category = require("./models/Category")
+const Section = require("./models/Section")
+const SubSection = require("./models/Subsection")
+const User = require("./models/User")
+const { uploadImageToCloudinary } = require("./utils/imageUploader")
+const CourseProgress = require("./models/CourseProgress")
 const { convertSecondsToDuration } = require("../utils/secToDuration")
 
 // Function to create a new course
@@ -234,7 +234,9 @@ exports.getAllCourses = async (req, res) => {
 
 exports.getCourseDetails = async (req, res) => {
   try {
+    //get id
     const { courseId } = req.body
+    //find course details
     const courseDetails = await Course.findOne({
       _id: courseId,
     })
@@ -254,7 +256,7 @@ exports.getCourseDetails = async (req, res) => {
         },
       })
       .exec()
-
+ // validation
     if (!courseDetails) {
       return res.status(400).json({
         success: false,
@@ -273,7 +275,7 @@ exports.getCourseDetails = async (req, res) => {
     })
 
     const totalDuration = convertSecondsToDuration(totalDurationInSeconds)
-
+ // ret res
     return res.status(200).json({
       success: true,
       data: {
@@ -288,6 +290,8 @@ exports.getCourseDetails = async (req, res) => {
     })
   }
 }
+
+
 exports.getFullCourseDetails = async (req, res) => {
   try {
     const { courseId } = req.body
