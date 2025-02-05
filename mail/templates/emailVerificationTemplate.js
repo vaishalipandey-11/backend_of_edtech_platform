@@ -66,8 +66,8 @@ const otpTemplate = (otp) => {
 	
 	<body>
 		<div class="container">
-			<a href="https://codeplay-edtech-project.vercel.app"><img class="logo"
-					src="https://i.ibb.co/g48x1XG/Untitled-design.png" alt="CodePlay Logo"></a>
+			<a href="https://CodeZen-edtech-project.vercel.app"><img class="logo"
+					src="https://i.ibb.co/g48x1XG/Untitled-design.png" alt="CodeZen Logo"></a>
 			<div class="message">OTP Verification Email</div>
 			<div class="body">
 				<p>Dear User,</p>
@@ -85,3 +85,5 @@ const otpTemplate = (otp) => {
 	</html>`;
 };
 module.exports = otpTemplate;
+
+
