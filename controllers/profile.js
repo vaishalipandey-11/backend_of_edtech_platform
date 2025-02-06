@@ -5,7 +5,7 @@ const Course = require("../models/Course")
 const User = require("../models/User")
 const { uploadImageToCloudinary } = require("../utils/imageUploader")
 const mongoose = require("mongoose")
-// const { convertSecondsToDuration } = require("../utils/secToDuration")
+const { convertSecondsToDuration } = require("../utils/secToDuration")
 // Method for updating a profile
 exports.updateProfile = async (req, res) => {
   try {
@@ -135,6 +135,10 @@ exports.updateDisplayPicture = async (req, res) => {
       message: `Image Updated successfully`,
       data: updatedProfile,
     })
+
+
+    
+
   } catch (error) {
     return res.status(500).json({
       success: false,
