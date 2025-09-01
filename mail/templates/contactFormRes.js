@@ -72,23 +72,15 @@ exports.contactUsEmail = (
   
   </head>
   
-  <body>
-    //   <div class="container">
-    //       <a href="https://codeplay-edtech-project.vercel.app"><img class="logo"
-    //               src="https://i.ibb.co/g48x1XG/Untitled-design.png" alt="CodeZen Logo"></a>
-    //       <div class="message">Contact Form Confirmation</div>
-    //       <div class="body">
-
+   <body>
       <div class="container">
-          <a href="${process.env.FRONTEND_URL || 'https://codeplay-edtech-project.vercel.app'}">
+          <a href="${process.env.FRONTEND_URL }">
               <img class="logo"
-                   src="${process.env.LOGO_URL || 'https://i.ibb.co/g48x1XG/Untitled-design.png'}" 
-                   alt="CodePlay Logo">
+                   src="${process.env.LOGO_URL}" 
+                   alt="CodeZen Logo">
           </a>
           <div class="message">Contact Form Confirmation</div>
           <div class="body">
-
-
               <p>Dear ${firstname} ${lastname},</p>
               <p>Thank you for contacting us. We have received your message and will respond to you as soon as possible.
               </p>
