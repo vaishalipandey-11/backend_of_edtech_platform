@@ -67,17 +67,27 @@ exports.paymentSuccessEmail = (name, amount, orderId, paymentId) => {
     
     <body>
         <div class="container">
-            <a href="https://codeplay-edtech-project.vercel.app"><img class="logo" src="https://i.ibb.co/g48x1XG/Untitled-design.png"
-                    alt="CodePlay Logo"></a>
+            <a href="${process.env.FRONTEND_URL}">
+                <img 
+                    class="logo"
+                    src="${process.env.LOGO_URL}"
+                    alt="CodePlay Logo"
+                />
+            </a>
             <div class="message">Course Payment Confirmation</div>
             <div class="body">
                 <p>Dear ${name},</p>
-                <p>We have received a payment of <span class='highlight'>₹${amount}</span></p>.
+                <p>We have received a payment of <span class='highlight'>₹${amount}</span></p>
                 <p>Your Payment ID is <b>${paymentId}</b></p>
                 <p>Your Order ID is <b>${orderId}</b></p>
             </div>
-            <div class="support">If you have any questions or need assistance, please feel free to reach out to us at <a
-                    href="mailto:info@codeplay.com">info@codeplay.com</a>. We are here to help!</div>
+            <div class="support">
+                If you have any questions or need assistance, please feel free to reach out to us at 
+                <a href="mailto:${process.env.SUPPORT_EMAIL}">
+                    ${process.env.SUPPORT_EMAIL}
+                </a>. 
+                We are here to help!
+            </div>
         </div>
     </body>
     

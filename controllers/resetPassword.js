@@ -12,7 +12,8 @@ exports.resetPasswordToken = async (req, res) => {
         message: `This Email: ${email} is not Registered With Us Enter a Valid Email `,
       })
     }
-    const token = crypto.randomBytes(20).toString("hex")
+    const token = crypto.randomBytes(20).toString("hex");
+    console.log("Generated Reset Token:", token);
 
     const updatedDetails = await User.findOneAndUpdate(
       { email: email },
@@ -24,8 +25,11 @@ exports.resetPasswordToken = async (req, res) => {
     )
     console.log("DETAILS", updatedDetails)
 
+    const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
+    const url = `${FRONTEND_URL}/update-password/${token}`;
+
     // const url = `http://localhost:3000/update-password/${token}`
-    const url = `https://codeplay-edtech-project.vercel.app/update-password/${token}`
+    // const url = `https://codeplay-edtech-project.vercel.app/update-password/${token}`
 
     await mailSender(
       email,

@@ -64,23 +64,35 @@ const otpTemplate = (otp) => {
 	
 	</head>
 	
-	<body>
-		<div class="container">
-			<a href="https://CodeZen-edtech-project.vercel.app"><img class="logo"
-					src="https://i.ibb.co/g48x1XG/Untitled-design.png" alt="CodeZen Logo"></a>
-			<div class="message">OTP Verification Email</div>
-			<div class="body">
-				<p>Dear User,</p>
-				<p>Thank you for registering with CodePlay. To complete your registration, please use the following OTP
-					(One-Time Password) to verify your account:</p>
-				<h2 class="highlight">${otp}</h2>
-				<p>This OTP is valid for 5 minutes. If you did not request this verification, please disregard this email.
-				Once your account is verified, you will have access to our platform and its features.</p>
-			</div>
-			<div class="support">If you have any questions or need assistance, please feel free to reach out to us at <a
-					href="mailto:info@CodeZen.com">info@CodeZen.com</a>. We are here to help!</div>
-		</div>
-	</body>
+	 </head>
+    <body>
+        <div class="container">
+            <a href="${process.env.FRONTEND_URL}">
+                <img 
+                    class="logo"
+                    src="${process.env.LOGO_URL}"
+                    alt="CodePlay Logo"
+                />
+            </a>
+            <div class="message">OTP Verification Email</div>
+            <div class="body">
+                <p>Dear User,</p>
+                <p>Thank you for registering with CodePlay. To complete your registration, 
+                   please use the following OTP (One-Time Password) to verify your account:</p>
+                <h2 class="highlight">${otp}</h2>
+                <p>This OTP is valid for 5 minutes. If you did not request this verification, 
+                   please disregard this email. Once your account is verified, you will have 
+                   access to our platform and its features.</p>
+            </div>
+            <div class="support">
+                If you have any questions or need assistance, please feel free to reach out to us at 
+                <a href="mailto:${process.env.SUPPORT_EMAIL}">
+                    ${process.env.SUPPORT_EMAIL}
+                </a>. 
+                We are here to help!
+            </div>
+        </div>
+    </body>
 	
 	</html>`;
 };

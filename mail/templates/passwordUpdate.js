@@ -53,20 +53,31 @@ exports.passwordUpdated = (email, name) => {
     
     </head>
     
-    <body>
+     <body>
         <div class="container">
-            <a href="https://codeplay-edtech-project.vercel.app"><img class="logo"
-                    src="https://i.ibb.co/g48x1XG/Untitled-design.png" alt="CodePlay Logo"></a>
+            <a href="${process.env.FRONTEND_URL}">
+                <img 
+                    class="logo"
+                    src="${process.env.LOGO_URL}"
+                    alt="CodePlay Logo"
+                />
+            </a>
             <div class="message">Password Update Confirmation</div>
             <div class="body">
                 <p>Hey ${name},</p>
-                <p>Your password has been successfully updated for the email <span class="highlight">${email}</span>.
+                <p>Your password has been successfully updated for the email 
+                   <span class="highlight">${email}</span>.
                 </p>
-                <p>If you did not request this password change, please contact us immediately to secure your account.</p>
+                <p>If you did not request this password change, please contact us 
+                   immediately to secure your account.</p>
             </div>
-            <div class="support">If you have any questions or need further assistance, please feel free to reach out to us
-                at
-                <a href="mailto:info@codeplay.com">info@codeplay.com</a>. We are here to help!
+            <div class="support">
+                If you have any questions or need further assistance, 
+                please feel free to reach out to us at
+                <a href="mailto:${process.env.SUPPORT_EMAIL}">
+                    ${process.env.SUPPORT_EMAIL}
+                </a>. 
+                We are here to help!
             </div>
         </div>
     </body>

@@ -73,11 +73,22 @@ exports.contactUsEmail = (
   </head>
   
   <body>
+    //   <div class="container">
+    //       <a href="https://codeplay-edtech-project.vercel.app"><img class="logo"
+    //               src="https://i.ibb.co/g48x1XG/Untitled-design.png" alt="CodeZen Logo"></a>
+    //       <div class="message">Contact Form Confirmation</div>
+    //       <div class="body">
+
       <div class="container">
-          <a href="https://codeplay-edtech-project.vercel.app"><img class="logo"
-                  src="https://i.ibb.co/g48x1XG/Untitled-design.png" alt="CodePlay Logo"></a>
+          <a href="${process.env.FRONTEND_URL || 'https://codeplay-edtech-project.vercel.app'}">
+              <img class="logo"
+                   src="${process.env.LOGO_URL || 'https://i.ibb.co/g48x1XG/Untitled-design.png'}" 
+                   alt="CodePlay Logo">
+          </a>
           <div class="message">Contact Form Confirmation</div>
           <div class="body">
+
+
               <p>Dear ${firstname} ${lastname},</p>
               <p>Thank you for contacting us. We have received your message and will respond to you as soon as possible.
               </p>
@@ -89,7 +100,7 @@ exports.contactUsEmail = (
               <p>We appreciate your interest and will get back to you shortly. </p>
           </div>
           <div class="support">If you have any further questions or need immediate assistance, please feel free to reach
-              out to us at <a href="mailto:info@codeplay.com">info@codeplay.com</a>. We are here to help!</div>
+              out to us at <a href="mailto:pandeyvaishali002@gmail.com">pandeyvaishali002@gmail.com</a>. We are here to help!</div>
       </div>
   </body>
   
