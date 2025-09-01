@@ -1,0 +1,1332 @@
+{
+	"info": {
+		"_postman_id": "9df47a2f-82d3-4895-b504-1d23584c9b7f",
+		"name": "backend_of_studynotion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39517660"
+	},
+	"item": [
+		{
+			"name": "User Authentication Routes",
+			"item": [
+				{
+					"name": "sendotp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"email\": \"vaishali@example.com\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/auth/sendotp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"sendotp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Vaishali\",\n  \"lastName\": \"Test\",\n  \"email\": \"vaishali@example.com\",\n  \"password\": \"yourpassword\",\n  \"confirmPassword\": \"yourpassword\",\n  \"accountType\": \"Student\",\n  \"contactNumber\": \"1234567890\",\n  \"otp\": \"482284\" // Use the OTP received from sendotp\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"vaishali@gmail.com\",\n  \"password\": \"yourpassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change_password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZhaXNoYWxpQGV4YW1wbGUuY29tIiwiaWQiOiI2OGEwY2Q4MGNhOGE3ZDAyMmI1OGRiOGIiLCJpYXQiOjE3NTUzNjg5MzYsImV4cCI6MTc1NTQ1NTMzNn0.TSBin86i9kdXTGILOL7ZOcYxyubec1N2c-c5sHvucJE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZhaXNoYWxpQGV4YW1wbGUuY29tIiwiaWQiOiI2OGEwY2Q4MGNhOGE3ZDAyMmI1OGRiOGIiLCJpYXQiOjE3NTUzNjg5MzYsImV4cCI6MTc1NTQ1NTMzNn0.TSBin86i9kdXTGILOL7ZOcYxyubec1N2c-c5sHvucJE",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"oldPassword\": \"yourpassword\",\n  \"newPassword\": \"newpassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/auth/changepassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"changepassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"email\": \"pandeyvaishali002@gmail.com\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/auth/reset-password-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"reset-password-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"token-from-email\",\n    \"password\": \"newPassword123\",\n    \"confirmPassword\": \"newPassword123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/auth/reset-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Course API Routes",
+			"item": [
+				{
+					"name": "Course Management Routes",
+					"item": [
+						{
+							"name": "Create Course",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvZGVoZWxwMDAyQGdtYWlsLmNvbSIsImlkIjoiNjhiNDcxYTk2YmU5ZWYyNjM2MjI4NjgzIiwiaWF0IjoxNzU2NjYwMzAyLCJleHAiOjE3NTY3NDY3MDJ9.koa2f0VzD7wFZ8Uykc807R5sijk5SCmrbUZ3nf24DJo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "courseName",
+											"value": "DSA course",
+											"type": "text"
+										},
+										{
+											"key": "courseDescription",
+											"value": "learn dsa from me",
+											"type": "text"
+										},
+										{
+											"key": "whatYouWillLearn",
+											"value": "dsa",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "999",
+											"type": "text"
+										},
+										{
+											"key": "tag",
+											"value": "[\"nodejs\",\"backend\",\"api\"]",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "68b480756be9ef263622869e",
+											"type": "text"
+										},
+										{
+											"key": "instructions",
+											"value": "[\"Setup\",\"Build APIs\",\"Deploy\"]",
+											"type": "text"
+										},
+										{
+											"key": "thumbnailImage",
+											"type": "file",
+											"src": "/home/vaishali/Documents/sshorts_cohorts/c0b5c51dd2d8d31db83cf6ddf069f76d.jpg"
+										}
+									],
+									"options": {
+										"formdata": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/course/createCourse",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"course",
+										"createCourse"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Course",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvZGVoZWxwMDAyQGdtYWlsLmNvbSIsImlkIjoiNjhiNDcxYTk2YmU5ZWYyNjM2MjI4NjgzIiwiaWF0IjoxNzU2NjYwMzAyLCJleHAiOjE3NTY3NDY3MDJ9.koa2f0VzD7wFZ8Uykc807R5sijk5SCmrbUZ3nf24DJo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"courseId\": \"course_id\",\n    \"courseName\": \"Updated Course\",\n    \"courseDescription\": \"Updated Description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/course/editCourse",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"course",
+										"editCourse"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Courses",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvZGVoZWxwMDAyQGdtYWlsLmNvbSIsImlkIjoiNjhiNDcxYTk2YmU5ZWYyNjM2MjI4NjgzIiwiaWF0IjoxNzU2NjYwMzAyLCJleHAiOjE3NTY3NDY3MDJ9.koa2f0VzD7wFZ8Uykc807R5sijk5SCmrbUZ3nf24DJo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/course/getAllCourses",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"course",
+										"getAllCourses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Course Details",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\n{\n    \"courseId\": \"course_id\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/course/getCourseDetails",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"course",
+										"getCourseDetails"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Section Management Routes",
+					"item": [
+						{
+							"name": "Add Section",
+							"request": {
+								"auth": {
+									"type": "bearer"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\n{\n    \"courseId\": \"course_id\",\n    \"sectionName\": \"New Section\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/course/addSection",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"course",
+										"addSection"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Section",
+							"request": {
+								"auth": {
+									"type": "bearer"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"sectionId\": \"section_id\",\n    \"sectionName\": \"Updated Section\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/course/updateSection",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"course",
+										"updateSection"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Section",
+							"request": {
+								"auth": {
+									"type": "bearer"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"sectionId\": \"section_id\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/course/deleteSection",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"course",
+										"deleteSection"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Subsection Management Routes",
+					"item": [
+						{
+							"name": "Add Subsection",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvZGVoZWxwMDAyQGdtYWlsLmNvbSIsImlkIjoiNjhiNDcxYTk2YmU5ZWYyNjM2MjI4NjgzIiwiaWF0IjoxNzU2NzE0MjA5LCJleHAiOjE3NTY4MDA2MDl9.n8F9PWCr2Js2_jm1XzGWeUKQkwaUQlynNROUUMz3Pq0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "sectionId",
+											"value": "68b5582e5e6f826b1eb24100",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Introduction to Node.js",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Learn the basics of Node.js",
+											"type": "text"
+										},
+										{
+											"key": "video",
+											"type": "file",
+											"src": "/home/vaishali/Downloads/lectures_cs/systemdesign/16. Realtime Pubsub.mp4"
+										}
+									],
+									"options": {
+										"formdata": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/course/addSubSection",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"course",
+										"addSubSection"
+									]
+								},
+								"description": "POST [http://localhost:4000/api/v1/course/addSubSection](http://localhost:4000/api/v1/course/addSubSection)  \nHeaders:  \nAuthorization: Bearer  \nContent-Type: application/json\n\n{  \n\"sectionId\": \"section_id\",  \n\"title\": \"Subsection Title\",  \n\"description\": \"Description\",  \n\"videoUrl\": \"video_url\"  \n}"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Subsection",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvZGVoZWxwMDAyQGdtYWlsLmNvbSIsImlkIjoiNjhiNDcxYTk2YmU5ZWYyNjM2MjI4NjgzIiwiaWF0IjoxNzU2NzE0MjA5LCJleHAiOjE3NTY4MDA2MDl9.n8F9PWCr2Js2_jm1XzGWeUKQkwaUQlynNROUUMz3Pq0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "sectionId",
+											"value": "68b5582e5e6f826b1eb24100",
+											"type": "text"
+										},
+										{
+											"key": "subSectionId",
+											"value": "68b55a865e6f826b1eb24110",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "updated subsec",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "aha npthing",
+											"type": "text"
+										},
+										{
+											"key": "video",
+											"type": "file",
+											"src": "/home/vaishali/Downloads/lectures_cs/systemdesign/20. Leader Election for auto-recovery.mp4"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/course/updateSubSection",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"course",
+										"updateSubSection"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Subsection",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvZGVoZWxwMDAyQGdtYWlsLmNvbSIsImlkIjoiNjhiNDcxYTk2YmU5ZWYyNjM2MjI4NjgzIiwiaWF0IjoxNzU2NzE0MjA5LCJleHAiOjE3NTY4MDA2MDl9.n8F9PWCr2Js2_jm1XzGWeUKQkwaUQlynNROUUMz3Pq0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"sectionId\": \"68b5582e5e6f826b1eb24100\",\n    \"subSectionId\": \"68b5582e5e6f826b1eb24100\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/course/deleteSubSection",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"course",
+										"deleteSubSection"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Category Routes (Admin Only)",
+					"item": [
+						{
+							"name": "Create Category",
+							"request": {
+								"auth": {
+									"type": "bearer"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\n{\n  \"name\": \"Web Development\",\n  \"description\": \"Courses for full-stack and frontend\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/course/createCategory",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"course",
+										"createCategory"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show All Categories",
+							"request": {
+								"auth": {
+									"type": "bearer"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/course/showAllCategories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"course",
+										"showAllCategories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Category Page Details",
+							"request": {
+								"auth": {
+									"type": "bearer"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\n{\n    \"categoryId\": \"your_category_id\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/course/categoryPageDetails",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"course",
+										"categoryPageDetails"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Rating and Review Routes",
+			"item": [
+				{
+					"name": "Create Rating",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhbmRleXZhaXNoYWxpMDAyQGdtYWlsLmNvbSIsImlkIjoiNjhiNDY3MDFiYzdiNGU5MTQ3Y2NiOGEwIiwiaWF0IjoxNzU2NzE3ODU0LCJleHAiOjE3NTY4MDQyNTR9.XKfn-IbFexoRi8qOAovJR_NSQ6iPyM_5T4Qst7eXZ9M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n    \"courseId\": \"course_id\",\n    \"rating\": 5,\n    \"review\": \"Great course!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/course/createRating",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"createRating"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Average Rating",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n    \"courseId\": \"your_course_id\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/course/getAverageRating",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"getAverageRating"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Ratings and Reviews",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/course/getAllRatingReview",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"course",
+								"getAllRatingReview"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment Routes",
+			"item": [
+				{
+					"name": "Capture Payment",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"courses\": [\"course_id_1\", \"course_id_2\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/payment/capturePayment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"payment",
+								"capturePayment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Payment",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"razorpay_order_id\": \"order_id\",\n    \"razorpay_payment_id\": \"payment_id\",\n    \"razorpay_signature\": \"signature\",\n    \"courses\": [\"course_id_1\", \"course_id_2\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/payment/verifyPayment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"payment",
+								"verifyPayment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Payment Success Email",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderId\": \"order_id\",\n    \"paymentId\": \"payment_id\",\n    \"amount\": 1000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/payment/sendPaymentSuccessEmail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"payment",
+								"sendPaymentSuccessEmail"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile Routes",
+			"item": [
+				{
+					"name": "Update Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvZGVoZWxwMDAyQGdtYWlsLmNvbSIsImlkIjoiNjhiNDcxYTk2YmU5ZWYyNjM2MjI4NjgzIiwiaWF0IjoxNzU2NzE0MjA5LCJleHAiOjE3NTY4MDA2MDl9.n8F9PWCr2Js2_jm1XzGWeUKQkwaUQlynNROUUMz3Pq0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n    \"firstName\": \"Updated\",\n    \"lastName\": \"Name\",\n    \"dateOfBirth\": \"1995-01-01\",\n    \"about\": \"This is my updated profile\",\n    \"contactNumber\": \"1234567890\",\n    \"gender\": \"Male\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/profile/updateProfile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"profile",
+								"updateProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvZGVoZWxwMDAyQGdtYWlsLmNvbSIsImlkIjoiNjhiNDcxYTk2YmU5ZWYyNjM2MjI4NjgzIiwiaWF0IjoxNzU2NzE0MjA5LCJleHAiOjE3NTY4MDA2MDl9.n8F9PWCr2Js2_jm1XzGWeUKQkwaUQlynNROUUMz3Pq0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/profile/deleteProfile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"profile",
+								"deleteProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvZGVoZWxwMDAyQGdtYWlsLmNvbSIsImlkIjoiNjhiNDcxYTk2YmU5ZWYyNjM2MjI4NjgzIiwiaWF0IjoxNzU2NzE0MjA5LCJleHAiOjE3NTY4MDA2MDl9.n8F9PWCr2Js2_jm1XzGWeUKQkwaUQlynNROUUMz3Pq0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/profile/getUserDetails",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"profile",
+								"getUserDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Display Picture",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvZGVoZWxwMDAyQGdtYWlsLmNvbSIsImlkIjoiNjhiNDcxYTk2YmU5ZWYyNjM2MjI4NjgzIiwiaWF0IjoxNzU2NzE0MjA5LCJleHAiOjE3NTY4MDA2MDl9.n8F9PWCr2Js2_jm1XzGWeUKQkwaUQlynNROUUMz3Pq0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "displayPicture",
+									"value": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/profile/updateDisplayPicture",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"profile",
+								"updateDisplayPicture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Enrolled Courses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvZGVoZWxwMDAyQGdtYWlsLmNvbSIsImlkIjoiNjhiNDcxYTk2YmU5ZWYyNjM2MjI4NjgzIiwiaWF0IjoxNzU2NzE0MjA5LCJleHAiOjE3NTY4MDA2MDl9.n8F9PWCr2Js2_jm1XzGWeUKQkwaUQlynNROUUMz3Pq0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/profile/getEnrolledCourses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"profile",
+								"getEnrolledCourses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Instructor Dashboard (Instructor Only)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvZGVoZWxwMDAyQGdtYWlsLmNvbSIsImlkIjoiNjhiNDcxYTk2YmU5ZWYyNjM2MjI4NjgzIiwiaWF0IjoxNzU2NzE0MjA5LCJleHAiOjE3NTY4MDA2MDl9.n8F9PWCr2Js2_jm1XzGWeUKQkwaUQlynNROUUMz3Pq0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/profile/instructorDashboard",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"profile",
+								"instructorDashboard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contact Routes",
+			"item": [
+				{
+					"name": "Contact Us",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"vaishali@example.com\",\n  \"firstname\": \"Vaishali\",\n  \"lastname\": \"Pandey\",\n  \"message\": \"I want to learn backend development.\",\n  \"phoneNo\": \"9876543210\",\n  \"countrycode\": \"+91\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "POST http://localhost:4000/api/v1/contact/contact",
+							"protocol": "POST http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"contact",
+								"contact"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "root",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
