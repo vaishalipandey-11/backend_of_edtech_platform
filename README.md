@@ -1,6 +1,5 @@
 # 🎓 CodeZen - EdTech Platform Backend
 A **comprehensive backend system** for an educational technology platform, built with **Node.js, Express, and MongoDB**.  
-This project showcases **real-world backend development skills** including authentication, course management, payments, and cloud integrations.
 
 ---
 
@@ -57,7 +56,7 @@ The backend exposes over **25 RESTful routes** covering:
 - User profile & progress (`/api/v1/profile/...`)
 
 👉 Detailed API usage, sample requests & responses are available via the **Postman Collection** included in this repository.  
-*(add link after deploying here vp)*
+*https://github.com/vaishalipandey-11/backend_of_edtech_platform/blob/main/backend_of_studynotion.postman_collection.json*
 
 ---
 
@@ -80,15 +79,7 @@ The backend exposes over **25 RESTful routes** covering:
    ```bash
    npm run dev
 
-## 📋 API Documentation
 
-The backend exposes over ** RESTful routes** including authentication, courses, payments, and user profiles.. etc.  
-
-👉 You can test all APIs using the provided **Postman Collection**:  
-[📥 Download CodeZen API Collection]([backend_of_studynotion.postman_collection.json](https://github.com/vaishalipandey-11/backend_of_edtech_platform/blob/main/backend_of_studynotion.postman_collection.json))
-
-Import this file into Postman to explore and test the API endpoints.
-   
 
 🎯 Learning Outcomes
 
