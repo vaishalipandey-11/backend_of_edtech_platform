@@ -80,6 +80,16 @@ The backend exposes over **25 RESTful routes** covering:
    ```bash
    npm run dev
 
+## 📋 API Documentation
+
+The backend exposes over ** RESTful routes** including authentication, courses, payments, and user profiles.. etc.  
+
+👉 You can test all APIs using the provided **Postman Collection**:  
+[📥 Download CodeZen API Collection]([backend_of_studynotion.postman_collection.json](https://github.com/vaishalipandey-11/backend_of_edtech_platform/blob/main/backend_of_studynotion.postman_collection.json))
+
+Import this file into Postman to explore and test the API endpoints.
+   
+
 🎯 Learning Outcomes
 
 Implemented secure authentication & role-based authorization
