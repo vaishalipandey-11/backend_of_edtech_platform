@@ -77,6 +77,7 @@ The backend exposes over **25 RESTful routes** covering:
   RAZORPAY_SECRET=your_razorpay_secret
 
 3. Run the server
+   ```bash
    npm run dev
 
 🎯 Learning Outcomes
@@ -99,6 +100,7 @@ Mobile app integration
 👩‍💻 Author
 
 Vaishali Pandey
+```bash
 📧 Email: pandeyvaishali002@gmail.com
 🐙 GitHub: vaishalipandey-11   
 
